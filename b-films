@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>B Films | Video Editing & Editing Packs</title>
+  <meta name="description" content="B Films - Professional video editing, cinematic wedding edits and editing packs.">
+  <meta name="keywords" content="B Films, video editing, wedding editing, cinematic editing, editing packs">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #080808;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,8,0.95);
+      border-bottom: 1px solid #222;
+      padding: 16px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      padding: 100px 7%;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, #292929, transparent 45%),
+        #080808;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .tag {
+      color: #aaa;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 9vw, 90px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #aaa;
+    }
+
+    .hero p {
+      color: #bbb;
+      max-width: 600px;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      background: #151515;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      color: black;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-text {
+      color: #999;
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .service {
+      background: #101010;
+    }
+
+    .contact-box {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      color: #aaa;
+      margin: 15px 0 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 14px 5%;
+      }
+
+      nav a {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 80px 6%;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">B FILMS</div>
+
+  <nav>
+    <a href="#packs">Packs</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="tag">VIDEO • CINEMATIC • EDITING</div>
+
+    <h1>
+      B <span>FILMS</span>
+    </h1>
+
+    <p>
+      Turn your videos into cinematic stories.
+      Get professional video editing, wedding edits,
+      reels and editing packs from B Films.
+    </p>
+
+    <a class="btn" href="#packs">Explore Editing Packs</a>
+
+    <a class="btn" href="#contact">Get Your Video Edited</a>
+
+  </div>
+</section>
+
+<section id="packs">
+
+  <h2 class="section-title">Editing Packs</h2>
+
+  <p class="section-text">
+    Ready-to-use resources for creators and editors.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Cinematic Pack</h3>
+      <p>
+        Cinematic presets, transitions and useful editing resources.
+      </p>
+      <div class="price">₹99</div>
+      <a class="btn" href="#contact">Get Pack</a>
+    </div>
+
+    <div class="card">
+      <h3>Reels Pack</h3>
+      <p>
+        Resources made for Instagram Reels and short-form videos.
+      </p>
+      <div class="price">₹149</div>
+      <a class="btn" href="#contact">Get Pack</a>
+    </div>
+
+    <div class="card">
+      <h3>Wedding Pack</h3>
+      <p>
+        Wedding editing resources for cinematic wedding videos.
+      </p>
+      <div class="price">₹199</div>
+      <a class="btn" href="#contact">Get Pack</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="services" class="service">
+
+  <h2 class="section-title">Editing Services</h2>
+
+  <p class="section-text">
+    Send your footage and let B Films create the final edit.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Instagram Reels</h3>
+      <p>Fast, engaging and cinematic short-form edits.</p>
+    </div>
+
+    <div class="card">
+      <h3>Wedding Videos</h3>
+      <p>Cinematic wedding films and highlight videos.</p>
+    </div>
+
+    <div class="card">
+      <h3>YouTube Videos</h3>
+      <p>Clean and professional YouTube video editing.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <div class="contact-box">
+
+    <h2 class="section-title">Work With B Films</h2>
+
+    <p>
+      Want an edit or an editing pack?
+      Contact B Films and tell us what you need.
+    </p>
+
+    <!-- अपना WhatsApp नंबर नीचे डालना -->
+    <a class="btn" href="https://wa.me/91XXXXXXXXXX">
+      WhatsApp
+    </a>
+
+    <!-- अपना Instagram username नीचे डालना -->
+    <a class="btn" href="https://instagram.com/YOUR_USERNAME">
+      Instagram
+    </a>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 B Films. All Rights Reserved.
+</footer>
+
+</body>
+</html>
