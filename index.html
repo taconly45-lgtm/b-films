@@ -1,771 +1,208 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="google-site-verification" content="NB3SxU0lGFqFiOmsnBrNOH_gFFzHK_GxwSzIJfGxXR0">
-
-  <title>B Films | Cinematic Wedding & Video Editing</title>
-  <meta name="description" content="B Films creates cinematic wedding films, Instagram reels, video edits and editing packs.">
-  <meta name="theme-color" content="#080d19">
-
-  <!-- Google Search Console verification: इसे न हटाएं -->
-  <meta name="google-site-verification" content="NB3SxU0lGFqFiOmsnBrNOH_gFFzHK_GxwSzIJfGxXR0" />
-
-  <style>
-    :root {
-      --bg: #080d19;
-      --panel: #101a2d;
-      --blue: #1688ff;
-      --cyan: #62d8ff;
-      --text: #f5f8ff;
-      --muted: #a5b2c8;
-      --border: rgba(98, 160, 255, .22);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(8, 13, 25, .94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--blue);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 17px;
-    }
-
-    nav a {
-      color: var(--muted);
-      font-size: 13px;
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: var(--cyan);
-    }
-
-    .hero {
-      min-height: 610px;
-      display: flex;
-      align-items: center;
-      padding: 100px 0;
-      background:
-        radial-gradient(ellipse at 80% 30%, rgba(22,136,255,.24), transparent 45%),
-        radial-gradient(ellipse at 20% 90%, rgba(0,75,180,.15), transparent 45%);
-    }
-
-    .eyebrow {
-      color: var(--cyan);
-      font-size: 12px;
-      letter-spacing: 4px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(48px, 9vw, 94px);
-      line-height: 1.02;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
-    }
-
-    h1 span {
-      color: var(--blue);
-      text-shadow: 0 0 35px rgba(22,136,255,.35);
-    }
-
-    .hero p {
-      max-width: 590px;
-      color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px 20px;
-      min-height: 46px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: #111d32;
-      font-size: 14px;
-      font-weight: bold;
-      transition: .25s;
-    }
-
-    .btn.primary {
-      color: white;
-      border-color: var(--blue);
-      background: linear-gradient(135deg, #0876ee, #1352d5);
-      box-shadow: 0 8px 25px rgba(22,136,255,.2);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      border-color: var(--cyan);
-    }
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-heading {
-      margin-bottom: 32px;
-    }
-
-    .section-heading small {
-      color: var(--cyan);
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(30px, 5vw, 43px);
-      line-height: 1.2;
-      margin: 8px 0 12px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 650px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      min-width: 0;
-      background: linear-gradient(160deg, #121f35, #0b1220);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: .25s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(98,216,255,.6);
-    }
-
-    .card img {
-      height: 210px;
-      object-fit: cover;
-      background: #14233b;
-    }
-
-    .card-content {
-      padding: 22px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 17px;
-    }
-
-    .price {
-      color: var(--cyan);
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .subtle {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .alternate {
-      background: rgba(17, 29, 50, .45);
-      border-top: 1px solid rgba(98,160,255,.12);
-      border-bottom: 1px solid rgba(98,160,255,.12);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .gallery-item {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      border-radius: 13px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-    }
-
-    .gallery-item img {
-      height: 250px;
-      object-fit: cover;
-      transition: transform .4s;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-label {
-      position: absolute;
-      inset: auto 0 0;
-      padding: 35px 14px 13px;
-      background: linear-gradient(transparent, rgba(0,0,0,.9));
-      font-weight: bold;
-    }
-
-    .video-placeholder {
-      min-height: 210px;
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: radial-gradient(circle, #173f75, #101a2d 70%);
-    }
-
-    .play {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 15px;
-      border-radius: 50%;
-      background: var(--blue);
-      font-size: 23px;
-    }
-
-    .about-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
-      padding: 35px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-    }
-
-    .about-box p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .about-art {
-      min-height: 250px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      background:
-        radial-gradient(circle, rgba(22,136,255,.3), transparent 60%),
-        #0a1222;
-      border: 1px solid var(--border);
-    }
-
-    .about-art strong {
-      font-size: clamp(45px, 7vw, 75px);
-      letter-spacing: 5px;
-    }
-
-    .about-art span {
-      color: var(--cyan);
-    }
-
-    .contact {
-      text-align: center;
-      background: radial-gradient(ellipse at center, rgba(22,136,255,.17), transparent 70%);
-    }
-
-    .contact p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 25px;
-    }
-
-    footer {
-      padding: 25px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .floating-wa {
-      position: fixed;
-      right: 17px;
-      bottom: 18px;
-      z-index: 90;
-      padding: 13px 16px;
-      border-radius: 50px;
-      background: #168b55;
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 5px 25px rgba(0,0,0,.4);
-    }
-
-    @media (max-width: 850px) {
-      .navbar {
-        padding: 15px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      .grid,
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about-box {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 85px 0;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .container {
-        width: 91%;
-      }
-
-      .logo {
-        font-size: 23px;
-      }
-
-      nav {
-        gap: 9px 14px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      section {
-        padding: 58px 0;
-      }
-
-      .grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card img,
-      .gallery-item img {
-        height: 230px;
-      }
-
-      .about-box {
-        padding: 20px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .floating-wa {
-        right: 12px;
-        bottom: 12px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B Films | Cinematic Wedding Films & Video Editing</title>
+<meta name="description" content="B Films makes cinematic wedding films, pre-wedding edits, Instagram reels and editing packs.">
+<meta name="theme-color" content="#080d19">
+<meta name="google-site-verification" content="NB3SxU0lGFqFiOmsnBrNOH_gFFzHK_GxwSzIJfGxXR0">
+<meta property="og:title" content="B Films | Cinematic Wedding Films & Video Editing">
+<meta property="og:description" content="Your story. Our frames.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080d19;--bg2:#0e1528;--ink:#f3ede2;--mute:#9aa3b8;--gold:#d8b779;--rose:#b4566b;--line:rgba(243,237,226,.14);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin:0 auto}
+section{padding:84px 0}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1}
+h2{font-size:clamp(2.1rem,6vw,3.4rem);margin-bottom:12px}
+h3{font-size:1.5rem}
+.lead{color:var(--mute);max-width:56ch;margin-bottom:36px}
+nav{position:fixed;inset:0 0 auto;z-index:20;background:rgba(8,13,25,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:.08em}
+.logo i{color:var(--gold);font-style:normal}
+.links{display:flex;gap:22px;font-size:.9rem;color:var(--mute)}
+.links a:hover{color:var(--ink)}
+@media(max-width:720px){.links a:nth-child(n+4){display:none}.links{gap:16px}}
+.btn{display:inline-block;padding:13px 26px;border-radius:2px;font-weight:700;font-size:.95rem;border:1px solid var(--gold);cursor:pointer;font-family:var(--sans);transition:.2s}
+.btn.fill{background:var(--gold);color:#16120a}.btn.fill:hover{background:#ecd29c}
+.btn.ghost{color:var(--gold)}.btn.ghost:hover{background:rgba(216,183,121,.12)}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:70px 0 0;background:#000}
+.frame{position:relative;width:100%;aspect-ratio:2.39/1;min-height:300px;overflow:hidden;background:radial-gradient(120% 140% at 70% 20%,#3a2230 0,#16213f 45%,#080d19 80%)}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,25,.85),rgba(8,13,25,.1) 70%)}
+.frame .copy{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:0 5%}
+.frame h1{font-size:clamp(2.4rem,8vw,5.6rem);max-width:12ch}
+.frame h1 em{color:var(--gold)}
+.frame p{color:#d6d9e2;margin:14px 0 24px;max-width:44ch}
+.tc{position:absolute;z-index:3;right:4%;bottom:14px;font:500 .8rem/1 var(--sans);color:var(--gold);letter-spacing:.14em;font-variant-numeric:tabular-nums}
+.tc b{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--rose);margin-right:8px;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.bar{background:#000;height:clamp(40px,8vh,90px)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.tile{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,var(--g1,#2a1f33),var(--g2,#0e1528));border:1px solid var(--line)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tile:hover img{transform:scale(1.04)}
+.tile span{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-family:var(--serif);font-size:1.35rem}
+.tile.wide{aspect-ratio:16/9}
+.tile iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tile .play{position:absolute;inset:0;display:grid;place-items:center;font-size:2.2rem;color:var(--gold);opacity:.8}
+.svc{display:grid;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+.row p{color:var(--mute);grid-column:1}
+.row a{grid-row:1/3;grid-column:2;color:var(--gold);font-weight:700}
+.packs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.pack{background:var(--bg2);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:10px}
+.pack.hot{border-color:var(--gold)}
+.pack .price{font-family:var(--serif);font-size:2.6rem;color:var(--gold)}
+.pack ul{list-style:none;color:var(--mute);font-size:.93rem;flex:1}
+.pack li{padding:5px 0;border-bottom:1px dashed var(--line)}
+.pack .tag{font-size:.78rem;color:var(--rose);font-weight:700}
+.rev{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.rev blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 18px;font-family:var(--serif);font-size:1.3rem}
+.rev cite{display:block;color:var(--mute);font:400 .85rem var(--sans);margin-top:8px}
+.about{display:grid;gap:36px;grid-template-columns:1fr 1fr;align-items:center}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.stats{display:flex;gap:30px;margin-top:24px;flex-wrap:wrap}
+.stats div{font-family:var(--serif);font-size:2.4rem;color:var(--gold);line-height:1}
+.stats small{display:block;font:400 .82rem var(--sans);color:var(--mute);margin-top:4px}
+form{display:grid;gap:14px;max-width:560px}
+label{font-size:.88rem;color:var(--mute);display:grid;gap:6px}
+input,select,textarea{background:var(--bg2);border:1px solid var(--line);color:var(--ink);padding:12px;border-radius:2px;font:inherit;width:100%}
+.alt{margin-top:22px;display:flex;gap:18px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:30px 0 90px;color:var(--mute);font-size:.88rem}
+.fab{position:fixed;right:16px;bottom:16px;z-index:30;background:#25d366;color:#06220f;font-weight:700;padding:13px 18px;border-radius:40px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-
 <body>
-
-<header>
-  <div class="container navbar">
-    <a class="logo" href="#home">B <span>FILMS</span></a>
-
-    <nav aria-label="Main navigation">
-      <a href="#portfolio">Portfolio</a>
-      <a href="#packs">Packs</a>
-      <a href="#weddings">Wedding</a>
-      <a href="#photos">Photos</a>
-      <a href="#videos">Videos</a>
-      <a href="#about">About</a>
-    </nav>
-  </div>
+<nav><div class="wrap">
+<a class="logo" href="#home">B<i>·</i>FILMS</a>
+<div class="links"><a href="#work">Work</a><a href="#weddings">Wedding</a><a href="#packs">Packs</a><a href="#videos">Videos</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</div></nav>
+<header class="hero" id="home">
+<div class="frame">
+<video id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
+<div class="copy">
+<h1>Your story.<br><em>Our frames.</em></h1>
+<p>Cinematic wedding films, pre-wedding edits and reels, cut with care so every moment feels like a scene.</p>
+<div><a class="btn fill" href="#contact">Book your film</a> <a class="btn ghost" href="#work">See our work</a></div>
+</div>
+<div class="tc"><b></b>REC 00:00:00</div>
+</div>
+<div class="bar"></div>
 </header>
-
-<main>
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="eyebrow">VIDEO EDITING • CINEMATIC STORIES</div>
-
-      <h1>YOUR STORY.<br><span>OUR FRAMES.</span></h1>
-
-      <p>
-        Welcome to B Films — cinematic wedding films, creative reels
-        and video editing services made to bring your moments to life.
-      </p>
-
-      <div class="buttons">
-        <a class="btn primary" href="#portfolio">Explore Portfolio</a>
-        <a class="btn" href="#contact">Let's Work Together</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-heading">
-        <small>Selected Work</small>
-        <h2>Our Portfolio</h2>
-        <p>A showcase layout for cinematic edits and creative projects.
-          Replace these sample images with your own work.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
-               alt="Wedding celebration sample" loading="lazy">
-          <div class="card-content">
-            <h3>Wedding Stories</h3>
-            <p>Emotional moments and cinematic wedding storytelling.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80"
-               alt="Creative photography sample" loading="lazy">
-          <div class="card-content">
-            <h3>Cinematic Frames</h3>
-            <p>Creative visuals, colour and atmosphere.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=80"
-               alt="Video camera sample" loading="lazy">
-          <div class="card-content">
-            <h3>Creator Edits</h3>
-            <p>Video content for creators and social media.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDITING PACKS -->
-  <section class="alternate" id="packs">
-    <div class="container">
-      <div class="section-heading">
-        <small>For Creators</small>
-        <h2>Editing Packs</h2>
-        <p>Example pack listings. Confirm what each pack includes before publishing it for sale.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <div class="card-content">
-            <h3>⚡ Cinematic Pack</h3>
-            <p>Editing resources and cinematic effects for your projects.</p>
-            <div class="price">₹99</div>
-            <a class="btn primary" href="#contact">Enquire Now</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-content">
-            <h3>🎬 Reels Pack</h3>
-            <p>Resources for short-form content and social media videos.</p>
-            <div class="price">₹149</div>
-            <a class="btn primary" href="#contact">Enquire Now</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-content">
-            <h3>💍 Wedding Pack</h3>
-            <p>Editing resources for wedding highlights and cinematic films.</p>
-            <div class="price">₹199</div>
-            <a class="btn primary" href="#contact">Enquire Now</a>
-          </div>
-        </article>
-      </div>
-
-      <p class="subtle" style="margin-top:18px">
-        Prices are examples and can be changed to your actual prices.
-      </p>
-    </div>
-  </section>
-
-  <!-- WEDDING SERVICES -->
-  <section id="weddings">
-    <div class="container">
-      <div class="section-heading">
-        <small>Make It Memorable</small>
-        <h2>Wedding Services</h2>
-        <p>Wedding editing options for couples, photographers and studios.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80"
-               alt="Wedding ceremony sample" loading="lazy">
-          <div class="card-content">
-            <h3>Cinematic Wedding Film</h3>
-            <p>Turn wedding footage into a story worth remembering.</p>
-            <a class="btn" href="#contact">Discuss Your Project</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80"
-               alt="Wedding couple sample" loading="lazy">
-          <div class="card-content">
-            <h3>Pre-Wedding Edit</h3>
-            <p>Romantic storytelling and cinematic colour grading.</p>
-            <a class="btn" href="#contact">Discuss Your Project</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=80"
-               alt="Wedding details sample" loading="lazy">
-          <div class="card-content">
-            <h3>Wedding Highlights</h3>
-            <p>A short highlight edit of important wedding moments.</p>
-            <a class="btn" href="#contact">Discuss Your Project</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTO GALLERY -->
-  <section class="alternate" id="photos">
-    <div class="container">
-      <div class="section-heading">
-        <small>Visual Memories</small>
-        <h2>Photo Gallery</h2>
-        <p>Sample gallery photos — add your own photographs when ready.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <a class="gallery-item" href="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding gallery sample" loading="lazy">
-          <span class="gallery-label">Wedding Moments</span>
-        </a>
-
-        <a class="gallery-item" href="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="Couple photography sample" loading="lazy">
-          <span class="gallery-label">Couple Portraits</span>
-        </a>
-
-        <a class="gallery-item" href="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=85" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=700&q=80" alt="Photography sample" loading="lazy">
-          <span class="gallery-label">Creative Frames</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDEO GALLERY -->
-  <section id="videos">
-    <div class="container">
-      <div class="section-heading">
-        <small>Watch Our Work</small>
-        <h2>Video Gallery</h2>
-        <p>Add your YouTube video links or public video previews here.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <div class="video-placeholder">
-            <div class="play">▶</div>
-            <h3>Wedding Highlight</h3>
-            <p class="subtle">Your wedding video goes here</p>
-          </div>
-          <div class="card-content">
-            <p>Replace this card's preview with your actual video.</p>
-            <a class="btn" href="#contact">Request a Preview</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="video-placeholder">
-            <div class="play">▶</div>
-            <h3>Cinematic Reel</h3>
-            <p class="subtle">Your reel goes here</p>
-          </div>
-          <div class="card-content">
-            <p>Show visitors your best short-form editing work.</p>
-            <a class="btn" href="#contact">Request a Preview</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="video-placeholder">
-            <div class="play">▶</div>
-            <h3>Pre-Wedding Film</h3>
-            <p class="subtle">Your film goes here</p>
-          </div>
-          <div class="card-content">
-            <p>Add a real video link when your sample is ready.</p>
-            <a class="btn" href="#contact">Request a Preview</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT ME -->
-  <section class="alternate" id="about">
-    <div class="container">
-      <div class="about-box">
-        <div>
-          <div class="section-heading">
-            <small>Behind B Films</small>
-            <h2>About Me</h2>
-          </div>
-
-          <p>
-            I'm building B Films around creative video editing,
-            cinematic visuals and meaningful storytelling.
-            My goal is to help every project feel unique.
-          </p>
-
-          <p>
-            For collaborations, editing enquiries and wedding projects,
-            get in touch through Instagram or WhatsApp.
-          </p>
-
-          <a class="btn primary" href="#contact">Contact B Films</a>
-        </div>
-
-        <div class="about-art" aria-label="B Films logo artwork">
-          <strong>B <span>FILMS</span></strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-heading">
-        <small>Let's Create</small>
-        <h2>Work With B Films</h2>
-      </div>
-
-      <p>
-        Have a wedding project, reel, video editing request
-        or question about an editing pack? Message us.
-      </p>
-
-      <div class="buttons" style="justify-content:center">
-        <a class="btn primary"
-           href="https://wa.me/916370223886"
-           target="_blank" rel="noopener">
-          Chat on WhatsApp
-        </a>
-
-        <a class="btn"
-           href="https://www.instagram.com/1x_______b/"
-           target="_blank" rel="noopener">
-          Follow on Instagram
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    © 2026 B Films. All Rights Reserved.
-  </div>
-</footer>
-
-<a class="floating-wa"
-   href="https://wa.me/916370223886"
-   target="_blank" rel="noopener"
-   aria-label="Contact B Films on WhatsApp">
-  WhatsApp ↗
-</a>
-
+<section id="work"><div class="wrap">
+<h2>Selected work</h2>
+<p class="lead">Frames from weddings, couples and creators we've edited.</p>
+<div class="grid" id="photoGrid"></div>
+</div></section>
+<section id="weddings" style="background:var(--bg2)"><div class="wrap">
+<h2>Wedding services</h2>
+<p class="lead">For couples, photographers and studios. Send your footage, we turn it into a film.</p>
+<div class="svc">
+<div class="row"><h3>Cinematic wedding film</h3><p>Full story of the day with colour grading, music and sound design.</p><a href="#contact" data-svc="Cinematic wedding film">Enquire</a></div>
+<div class="row"><h3>Pre-wedding edit</h3><p>A romantic short film with cinematic colour and smooth transitions.</p><a href="#contact" data-svc="Pre-wedding edit">Enquire</a></div>
+<div class="row"><h3>Wedding highlights</h3><p>A short, shareable edit of the best moments, ready for Instagram and WhatsApp.</p><a href="#contact" data-svc="Wedding highlights">Enquire</a></div>
+<div class="row"><h3>Instagram reels</h3><p>Vertical edits with beat-synced cuts for creators and brands.</p><a href="#contact" data-svc="Instagram reel">Enquire</a></div>
+</div>
+</div></section>
+<section id="packs"><div class="wrap">
+<h2>Editing packs</h2>
+<p class="lead">Ready-to-use resources for editors. Message us on WhatsApp to buy; you'll get the files after payment.</p>
+<div class="packs" id="packGrid"></div>
+</div></section>
+<section id="videos" style="background:var(--bg2)"><div class="wrap">
+<h2>Watch our films</h2>
+<p class="lead">Highlights and reels, straight from our timeline.</p>
+<div class="grid" id="videoGrid"></div>
+</div></section>
+<section id="reviews" hidden><div class="wrap">
+<h2>Kind words</h2>
+<div class="rev" id="revGrid"></div>
+</div></section>
+<section id="about"><div class="wrap about">
+<div>
+<h2>Behind B Films</h2>
+<p class="lead" style="margin-bottom:0">I edit weddings and short-form videos with one goal: every project should feel like it belongs only to you. Tell me about your day, your music and your mood, and I'll shape the film around them.</p>
+<div class="stats" id="stats"></div>
+</div>
+<div class="tile" style="aspect-ratio:1" id="aboutPic"><span>Editor at work</span></div>
+</div></section>
+<section id="contact" style="background:var(--bg2)"><div class="wrap">
+<h2>Let's create</h2>
+<p class="lead">Tell us about your project. This opens WhatsApp with your details filled in, so you only press send.</p>
+<form id="enq">
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>What do you need?
+<select name="svc" id="svc">
+<option>Cinematic wedding film</option><option>Pre-wedding edit</option><option>Wedding highlights</option>
+<option>Instagram reel</option><option>Editing pack</option><option>Something else</option>
+</select></label>
+<label>Event or deadline date<input type="date" name="date"></label>
+<label>Budget (optional)<input name="budget" placeholder="e.g. ₹10,000"></label>
+<label>Details<textarea name="msg" rows="3" placeholder="Footage length, style you like, music..."></textarea></label>
+<button class="btn fill" type="submit">Send on WhatsApp</button>
+</form>
+<div class="alt"><a class="btn ghost" id="igLink" target="_blank" rel="noopener">Message on Instagram</a></div>
+</div></section>
+<footer><div class="wrap">© 2026 B Films. All rights reserved.</div></footer>
+<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
+<script>
+const SITE={
+wa:"916370223886",
+ig:"https://www.instagram.com/1x_______b/",
+heroVideo:"",
+aboutPhoto:"",
+stats:[]
+};
+const PHOTOS=[
+{src:"",title:"Wedding moments"},
+{src:"",title:"Couple portraits"},
+{src:"",title:"Cinematic frames"},
+{src:"",title:"Creator edits"}
+];
+const VIDEOS=[
+{yt:"",title:"Wedding highlight"},
+{yt:"",title:"Cinematic reel"},
+{yt:"",title:"Pre-wedding film"}
+];
+const PACKS=[
+{name:"Cinematic Pack",price:"₹99",items:["Cinematic effects","Colour looks"]},
+{name:"Reels Pack",price:"₹149",items:["Short-form transitions","Social media resources"],hot:true},
+{name:"Wedding Pack",price:"₹199",items:["Wedding highlight resources","Cinematic film tools"]}
+];
+const REVIEWS=[];
+const G=[["#3a2230","#0e1528"],["#2b2a4a","#0a1020"],["#4a2a35","#10162b"],["#1f3a4a","#0a1020"]];
+const $=id=>document.getElementById(id);
+const wa=t=>`https://wa.me/${SITE.wa}?text=${encodeURIComponent(t)}`;
+$("fab").href=wa("Hi B Films, I'd like to know more about your work.");
+$("igLink").href=SITE.ig;
+$("photoGrid").innerHTML=PHOTOS.map((p,i)=>`<div class="tile" style="--g1:${G[i%4][0]};--g2:${G[i%4][1]}">${p.src?`<img src="${p.src}" alt="${p.title}" loading="lazy">`:""}<span>${p.title}</span></div>`).join("");
+$("videoGrid").innerHTML=VIDEOS.map((v,i)=>`<div class="tile wide" style="--g1:${G[i%4][0]};--g2:${G[i%4][1]}">${v.yt?`<iframe src="https://www.youtube-nocookie.com/embed/${v.yt}" title="${v.title}" loading="lazy" allowfullscreen></iframe>`:`<div class="play">▶</div><span>${v.title}</span>`}</div>`).join("");
+$("packGrid").innerHTML=PACKS.map(p=>`<div class="pack${p.hot?" hot":""}">${p.hot?'<div class="tag">Most popular</div>':""}<h3>${p.name}</h3><div class="price">${p.price}</div><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn ${p.hot?"fill":"ghost"}" target="_blank" rel="noopener" href="${wa("Hi B Films, I want to buy the "+p.name+" ("+p.price+").")}">Buy on WhatsApp</a></div>`).join("");
+if(REVIEWS.length){$("reviews").hidden=false;$("revGrid").innerHTML=REVIEWS.map(r=>`<blockquote>${r.q}<cite>${r.by}</cite></blockquote>`).join("")}
+$("stats").innerHTML=SITE.stats.map(s=>`<div>${s[0]}<small>${s[1]}</small></div>`).join("");
+if(SITE.aboutPhoto)$("aboutPic").innerHTML=`<img src="${SITE.aboutPhoto}" alt="Editor at B Films" loading="lazy">`;
+if(SITE.heroVideo){const v=$("heroVideo");v.src=SITE.heroVideo;v.preload="auto";if(!matchMedia("(prefers-reduced-motion:reduce)").matches)v.play().catch(()=>{})}
+document.querySelectorAll("[data-svc]").forEach(a=>a.addEventListener("click",()=>{$("svc").value=a.dataset.svc}));
+$("enq").addEventListener("submit",e=>{
+e.preventDefault();const f=new FormData(e.target);
+const t=`Hi B Films!\nName: ${f.get("name")}\nService: ${f.get("svc")}\nDate: ${f.get("date")||"not decided"}\nBudget: ${f.get("budget")||"not decided"}\nDetails: ${f.get("msg")||"-"}`;
+window.open(wa(t),"_blank","noopener");
+});
+const tc=document.querySelector(".tc");let s=0;
+setInterval(()=>{s++;const p=n=>String(n).padStart(2,"0");tc.lastChild.textContent="REC "+p(Math.floor(s/3600))+":"+p(Math.floor(s/60)%60)+":"+p(s%60)},1000);
+</script>
 </body>
 </html>
