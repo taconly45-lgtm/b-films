@@ -468,7 +468,7 @@ document.getElementById("reviewForm").addEventListener("submit", async event => 
   }
 
   form.reset();
-  status.textContent = "Thank you! Your review is submitted for approval.";
+  status.textContent = "Error: " + error.message;
 });
 
 showReviews();
