@@ -3,63 +3,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>B FILMS Admin Panel</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     * { box-sizing: border-box; }
     body {
-      margin: 0;
-      padding: 20px;
-      background: #090909;
-      color: #fff;
+      margin: 0; padding: 20px;
+      background: #090909; color: #fff;
       font-family: Arial, sans-serif;
     }
     .box {
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 22px;
-      background: #171717;
-      border: 1px solid #333;
-      border-radius: 14px;
+      max-width: 600px; margin: 20px auto;
+      padding: 22px; background: #171717;
+      border: 1px solid #333; border-radius: 14px;
     }
     h1 { color: #ff5a1f; }
     input, button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
+      width: 100%; padding: 12px; margin: 8px 0;
       border-radius: 7px;
     }
     input {
-      background: #222;
-      color: #fff;
+      background: #222; color: #fff;
       border: 1px solid #444;
     }
     button {
-      background: #ff5a1f;
-      color: #fff;
-      border: none;
-      font-weight: bold;
+      background: #ff5a1f; color: #fff;
+      border: 0; font-weight: bold; cursor: pointer;
+    }
+    .secondary { background: #444; }
+    .delete { background: #b42318; }
+    .item {
+      padding: 12px; margin: 12px 0;
+      border: 1px solid #444; border-radius: 9px;
+      overflow-wrap: anywhere;
+    }
+    .item img, .item video {
+      display: block; width: 100%;
+      max-height: 300px; object-fit: contain;
+      background: #000; margin-bottom: 8px;
     }
     #status { overflow-wrap: anywhere; }
     small { color: #bbb; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
   <div class="box">
     <h1>B FILMS</h1>
-    <p>Admin Media Upload</p>
+    <p>Private Admin Media Panel</p>
 
-    <input id="email" type="email" placeholder="Admin email">
-    <input id="password" type="password" placeholder="Admin password">
-    <button onclick="login()">Login</button>
+    <section id="loginBox">
+      <input id="email" type="email" placeholder="Admin email"
+        autocomplete="username">
+      <input id="password" type="password"
+        placeholder="Admin password" autocomplete="current-password">
+      <button onclick="login()">Login</button>
+    </section>
 
-    <hr>
+    <section id="adminBox" hidden>
+      <hr>
+      <h3>Upload Photo / Video</h3>
+      <input id="file" type="file"
+        accept="image/jpeg,image/png,image/webp,video/mp4,video/webm">
+      <button onclick="uploadFile()">Upload Media</button>
+      <button class="secondary" onclick="loadFiles()">Refresh File List</button>
+      <button class="secondary" onclick="logout()">Logout</button>
 
-    <input id="file" type="file"
-      accept="image/jpeg,image/png,image/webp,video/mp4,video/webm">
-
-    <button onclick="uploadFile()">Upload Media</button>
+      <hr>
+      <h3>Your Uploaded Files</h3>
+      <div id="files">Loading files...</div>
+    </section>
 
     <p id="status">Login to begin.</p>
     <small>Maximum size: 20 MB. JPG, PNG, WEBP, MP4, WEBM.</small>
@@ -68,29 +82,25 @@
 <script>
   const SUPABASE_URL =
     "https://xqbkfolbkdaxaduerocq.supabase.co";
-
   const SUPABASE_KEY =
     "sb_publishable_1iSQqaHnz1qf3hZuK0E9HA_vCcSI-kd";
 
   const client = supabase.createClient(
-    SUPABASE_URL,
-    const SUPABASE_KEY =
-  "sb_publishable_1iSQqaHnz1qf3hZuK0E9HA_vCcSI-kd";
+    SUPABASE_URL, SUPABASE_KEY
   );
+
+  const bucket = "b-films-media";
 
   function showStatus(message) {
     document.getElementById("status").textContent = message;
   }
 
   async function login() {
-    const email =
-      document.getElementById("email").value.trim();
-    const password =
-      document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
     const { error } = await client.auth.signInWithPassword({
-      email,
-      password
+      email, password
     });
 
     if (error) {
@@ -98,19 +108,28 @@
       return;
     }
 
-    showStatus("Login successful. Select a file.");
+    document.getElementById("loginBox").hidden = true;
+    document.getElementById("adminBox").hidden = false;
+    showStatus("Login successful.");
+    await loadFiles();
+  }
+
+  async function logout() {
+    await client.auth.signOut();
+    document.getElementById("adminBox").hidden = true;
+    document.getElementById("loginBox").hidden = false;
+    document.getElementById("files").replaceChildren();
+    showStatus("Logged out.");
   }
 
   async function uploadFile() {
-    const { data } = await client.auth.getSession();
-
-    if (!data.session) {
+    const { data: sessionData } = await client.auth.getSession();
+    if (!sessionData.session) {
       showStatus("Pehle login karo.");
       return;
     }
 
     const file = document.getElementById("file").files[0];
-
     if (!file) {
       showStatus("Pehle file select karo.");
       return;
@@ -122,35 +141,136 @@
     ];
 
     if (!allowed.includes(file.type)) {
-      showStatus("Ye file format supported nahi hai.");
+      showStatus("Unsupported file format.");
       return;
     }
-
     if (file.size > 20 * 1024 * 1024) {
       showStatus("File 20 MB se chhoti honi chahiye.");
       return;
     }
 
-    const safeName = file.name.replace(
-      /[^a-zA-Z0-9._-]/g, "_"
-    );
-
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
     const path = "uploads/" + Date.now() + "_" + safeName;
 
     showStatus("Uploading...");
 
     const { error } = await client.storage
-      .from("b-films-media")
-      .upload(path, file);
+      .from(bucket).upload(path, file);
 
     if (error) {
       showStatus("Upload error: " + error.message);
       return;
     }
 
-    showStatus("Upload successful: " + path);
+    document.getElementById("file").value = "";
+    showStatus("Upload successful!");
+    await loadFiles();
   }
+
+  async function loadFiles() {
+    const container = document.getElementById("files");
+    container.replaceChildren();
+
+    const { data: sessionData } = await client.auth.getSession();
+    if (!sessionData.session) {
+      container.textContent = "Please login first.";
+      return;
+    }
+
+    container.textContent = "Loading...";
+
+    const { data, error } = await client.storage
+      .from(bucket)
+      .list("uploads", {
+        limit: 100,
+        offset: 0,
+        sortBy: { column: "created_at", order: "desc" }
+      });
+
+    container.replaceChildren();
+
+    if (error) {
+      container.textContent = "List error: " + error.message;
+      return;
+    }
+
+    const files = (data || []).filter(item => item.name);
+
+    if (!files.length) {
+      container.textContent = "Abhi koi uploaded file nahi hai.";
+      return;
+    }
+
+    for (const file of files) {
+      const path = "uploads/" + file.name;
+      const item = document.createElement("div");
+      item.className = "item";
+
+      const name = document.createElement("p");
+      name.textContent = file.name;
+      item.appendChild(name);
+
+      const { data: signedData, error: signedError } =
+        await client.storage.from(bucket)
+          .createSignedUrl(path, 300);
+
+      if (!signedError && signedData?.signedUrl) {
+        const url = signedData.signedUrl;
+
+        if (/\.(jpg|jpeg|png|webp)$/i.test(file.name)) {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = file.name;
+          img.loading = "lazy";
+          item.appendChild(img);
+        } else if (/\.(mp4|webm)$/i.test(file.name)) {
+          const video = document.createElement("video");
+          video.src = url;
+          video.controls = true;
+          video.preload = "metadata";
+          item.appendChild(video);
+        }
+      }
+
+      const del = document.createElement("button");
+      del.className = "delete";
+      del.textContent = "Delete File";
+      del.onclick = () => deleteFile(path, file.name);
+      item.appendChild(del);
+
+      container.appendChild(item);
+    }
+  }
+
+  async function deleteFile(path, name) {
+    if (!confirm("Kya tum sach mein ye file delete karna chahte ho?\n" + name)) {
+      return;
+    }
+
+    showStatus("Deleting...");
+
+    const { error } = await client.storage
+      .from(bucket).remove([path]);
+
+    if (error) {
+      showStatus("Delete error: " + error.message);
+      return;
+    }
+
+    showStatus("File deleted.");
+    await loadFiles();
+  }
+
+  async function restoreSession() {
+    const { data } = await client.auth.getSession();
+    if (data.session) {
+      document.getElementById("loginBox").hidden = true;
+      document.getElementById("adminBox").hidden = false;
+      await loadFiles();
+    }
+  }
+
+  restoreSession();
 </script>
 </body>
-      </html>
-      
+</html>
