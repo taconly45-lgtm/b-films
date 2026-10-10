@@ -357,6 +357,122 @@ $("enq").addEventListener("submit", e => {
 
 loadUploads();
 </script>
+  <section id="reviews" style="background:#0b0b0d;color:#f4f1ea;padding:60px 0;">
+  <div style="width:92%;max-width:900px;margin:auto;">
+    <h2 style="font-size:2.5rem;">Client <span style="color:#ff5a1f;">Reviews</span></h2>
+    <p style="color:#9c9ca8;margin:12px 0 25px;">Share your honest experience with B Films.</p>
+
+    <form id="reviewForm" style="display:grid;gap:14px;max-width:540px;">
+      <label>Your name
+        <input name="name" required minlength="2" maxlength="60"
+          style="background:#141418;color:#f4f1ea;border:1px solid #333;padding:12px;border-radius:10px;">
+      </label>
+
+      <label>Your rating
+        <select name="rating" required
+          style="background:#141418;color:#f4f1ea;border:1px solid #333;padding:12px;border-radius:10px;">
+          <option value="">Choose stars</option>
+          <option value="5">★★★★★ — 5 stars</option>
+          <option value="4">★★★★ — 4 stars</option>
+          <option value="3">★★★ — 3 stars</option>
+          <option value="2">★★ — 2 stars</option>
+          <option value="1">★ — 1 star</option>
+        </select>
+      </label>
+
+      <label>Your review
+        <textarea name="review" required minlength="5" maxlength="1000" rows="4"
+          placeholder="Write your honest feedback..."
+          style="background:#141418;color:#f4f1ea;border:1px solid #333;padding:12px;border-radius:10px;"></textarea>
+      </label>
+
+      <button type="submit"
+        style="background:#ff5a1f;color:#1a0a03;padding:14px;border:0;border-radius:30px;font-weight:bold;">
+        Submit Review
+      </button>
+      <p id="reviewStatus" style="color:#9c9ca8;" aria-live="polite"></p>
+    </form>
+
+    <div id="reviewList" style="display:grid;gap:14px;margin-top:30px;"></div>
+  </div>
+  </section>
+  <script>
+const reviewClient = window.supabase.createClient(
+  "https://xqbkfolbkdaxaduerocq.supabase.co",
+  "sb_publishable_1iSQqaHnz1qf3hZuK0E9HA_vCcSI-kd"
+);
+
+async function showReviews() {
+  const list = document.getElementById("reviewList");
+  list.textContent = "Loading reviews...";
+
+  const { data, error } = await reviewClient
+    .from("reviews")
+    .select("name,rating,review,created_at")
+    .eq("is_approved", true)
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    list.textContent = "Reviews could not load right now.";
+    console.error(error);
+    return;
+  }
+
+  list.replaceChildren();
+
+  if (!data.length) {
+    list.textContent = "No approved reviews yet. Be the first to share your experience!";
+    return;
+  }
+
+  data.forEach(item => {
+    const card = document.createElement("article");
+    card.style.cssText =
+      "background:#141418;border:1px solid rgba(244,241,234,.12);padding:20px;border-radius:14px";
+
+    const stars = document.createElement("p");
+    stars.textContent = "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+    stars.style.color = "#ff5a1f";
+
+    const name = document.createElement("h3");
+    name.textContent = item.name;
+
+    const review = document.createElement("p");
+    review.textContent = item.review;
+
+    card.append(stars, name, review);
+    list.appendChild(card);
+  });
+}
+
+document.getElementById("reviewForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const status = document.getElementById("reviewStatus");
+  const values = new FormData(form);
+
+  status.textContent = "Submitting...";
+
+  const { error } = await reviewClient.from("reviews").insert({
+    name: String(values.get("name")).trim(),
+    rating: Number(values.get("rating")),
+    review: String(values.get("review")).trim(),
+    is_approved: false
+  });
+
+  if (error) {
+    console.error(error);
+    status.textContent = "Could not submit. Please try again later.";
+    return;
+  }
+
+  form.reset();
+  status.textContent = "Thank you! Your review is submitted for approval.";
+});
+
+showReviews();
+  </script>
 </body>
   </html>
                           
