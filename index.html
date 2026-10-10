@@ -122,6 +122,10 @@ footer{border-top:1px solid var(--line);padding:28px 0 90px;color:var(--mute);fo
 <section id="work"><div class="wrap">
   <h2>Selected work</h2>
   <p class="lead">A few edits from the timeline.</p>
+  <div class="sub">Latest uploads</div>
+<div class="grid" id="gUploads">
+  <p style="color:#9c9ca8">Loading photos and videos...</p>
+</div>
   <div class="sub">Instagram reels</div><div class="grid" id="gReels"></div>
   <div class="sub">Car deliveries</div><div class="grid" id="gCars"></div>
   <div class="sub">Colour grading</div><div class="grid" id="gGrade"></div>
@@ -195,6 +199,69 @@ $("gReels").innerHTML=WORK.reels.map((w,i)=>tile(w,i)).join("");
 $("gCars").innerHTML=WORK.cars.map((w,i)=>tile(w,i+1)).join("");
 $("gGrade").innerHTML=WORK.grade.map((w,i)=>tile(w,i+2,true)).join("");
 
+async function loadUploads(){
+  const box = document.getElementById("gUploads");
+  const SUPABASE_URL = "https://xqbkfolbkdaxaduerocq.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_1iSQqaHnz1qf3hZuK0E9HA_vCcSI-kd";
+
+  try {
+    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const { data, error } = await client.storage
+      .from("b-films-media")
+      .list("uploads", {
+        limit: 100,
+        sortBy: { column: "created_at", order: "desc" }
+      });
+
+    if (error) throw error;
+
+    const files = (data || []).filter(f =>
+      /\.(mp4|webm|mov|jpg|jpeg|png|webp)$/i.test(f.name)
+    );
+
+    if (!files.length) {
+      box.textContent = "No uploads yet. Upload photos or videos from Admin Panel.";
+      return;
+    }
+
+    box.replaceChildren();
+
+    files.forEach((file, i) => {
+      const url = client.storage.from("b-films-media")
+        .getPublicUrl("uploads/" + file.name).data.publicUrl;
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.style.setProperty("--g1", ["#ff5a1f","#3b6cff","#c9a35a","#b4306b"][i % 4]);
+
+      if (/\.(mp4|webm|mov)$/i.test(file.name)) {
+        const video = document.createElement("video");
+        video.src = url;
+        video.controls = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        tile.appendChild(video);
+      } else {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = file.name;
+        img.loading = "lazy";
+        tile.appendChild(img);
+      }
+
+      const caption = document.createElement("span");
+      caption.textContent = file.name.replace(/^\d+_/, "");
+      tile.appendChild(caption);
+      box.appendChild(tile);
+    });
+  } catch (err) {
+    box.textContent = "Uploads could not be loaded. Check the Supabase bucket settings.";
+    console.error(err);
+  }
+}
+
+loadUploads();
+                  
 const ba=$("ba"),rng=$("rng");
 rng.addEventListener("input",()=>ba.style.setProperty("--p",rng.value+"%"));
 
@@ -204,5 +271,6 @@ $("enq").addEventListener("submit",e=>{
   window.open(wa(t),"_blank","noopener");
 });
 </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>
