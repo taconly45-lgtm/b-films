@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="NB3SxU0lGFqFiOmsnBrNOH_gFFzHK_GxwSzIJfGxXR0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>B Films | Reels, Car Delivery Edits & Colour Grading</title>
 <meta name="description" content="Professional Instagram reel editing, car delivery videos and cinematic colour grading.">
 <meta name="theme-color" content="#0b0b0d">
@@ -11,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
 :root{--bg:#0b0b0d;--card:#141418;--ink:#f4f1ea;--mute:#9c9ca8;--acc:#ff5a1f;--line:rgba(244,241,234,.12);--d:'Syne',system-ui,sans-serif;--b:'Manrope',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -26,13 +29,16 @@ h3{font-size:1.35rem;font-weight:600}
 .lead{color:var(--mute);max-width:56ch;margin-bottom:34px}
 nav{position:fixed;top:env(safe-area-inset-top,0);inset-inline:0;z-index:20;background:rgba(11,11,13,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-.logo{font:800 1.25rem var(--d);letter-spacing:.04em}.logo i{color:var(--acc);font-style:normal}
-.links{display:flex;gap:20px;font-size:.9rem;color:var(--mute)}.links a:hover{color:var(--ink)}
-@media(max-width:700px){.links a:nth-child(n+4){display:none}}
+.logo{font:800 1.25rem var(--d);letter-spacing:.04em}
+.logo i{color:var(--acc);font-style:normal}
+.links{display:flex;gap:20px;font-size:.9rem;color:var(--mute)}
+.links a:hover{color:var(--ink)}
+@media(max-width:700px){.links{gap:12px;font-size:.8rem}.links a:nth-child(n+4){display:none}}
 .btn{display:inline-block;padding:13px 24px;border-radius:40px;font-weight:700;font-size:.95rem;border:1.5px solid var(--acc);cursor:pointer;font-family:var(--b);transition:.2s}
-.btn.fill{background:var(--acc);color:#1a0a03}.btn.fill:hover{background:#ff7a47}
-.btn.ghost{color:var(--acc)}.btn.ghost:hover{background:rgba(255,90,31,.12)}
-/* hero */
+.btn.fill{background:var(--acc);color:#1a0a03}
+.btn.fill:hover{background:#ff7a47}
+.btn.ghost{color:var(--acc)}
+.btn.ghost:hover{background:rgba(255,90,31,.12)}
 .hero{padding:120px 0 70px;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
 @media(max-width:800px){.hero .wrap{grid-template-columns:1fr}}
@@ -47,15 +53,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .ph span{position:absolute;left:10px;bottom:12px;font:800 .8rem var(--d);letter-spacing:.06em}
 .ph::after{content:"";position:absolute;top:8px;left:50%;width:30%;height:4px;border-radius:4px;background:rgba(255,255,255,.35);transform:translateX(-50%)}
 @keyframes fl{50%{translate:0 -12px}}
-/* services */
-.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px}
 .card .ico{font-size:1.8rem}
 .card ul{list-style:none;color:var(--mute);font-size:.93rem;flex:1}
 .card li{padding:5px 0 5px 18px;position:relative}
 .card li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:2px;background:var(--acc)}
-.card .price{font:800 1.5rem var(--d);color:var(--acc)}
-/* before/after */
+.card .price{font:800 1.2rem var(--d);color:var(--acc)}
 .ba{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);user-select:none}
 .scene{position:absolute;inset:0;background:linear-gradient(180deg,#ff8a3d 0,#ff4e50 30%,#3a1c4a 58%,#120b1c 58%,#1b1420 100%)}
 .scene svg{position:absolute;left:50%;bottom:9%;width:46%;transform:translateX(-50%)}
@@ -64,213 +68,295 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:5
 .lbl{position:absolute;top:12px;z-index:3;background:rgba(0,0,0,.6);padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:700}
 .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4}
 .knob{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:#fff;z-index:3}
-.knob::after{content:"\2194";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-weight:700}
-/* portfolio */
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.knob::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-weight:700}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr))}
 .tile{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(165deg,var(--g1),#0b0b0d)}
 .tile.w{aspect-ratio:16/9}
 .tile video,.tile img,.tile iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-.tile span{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font:600 1rem var(--d);z-index:2}
+.tile span{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font:600 1rem var(--d);z-index:2;overflow-wrap:anywhere}
 .tile .play{position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--acc);opacity:.85}
 .sub{font:700 1.1rem var(--d);margin:30px 0 14px;color:var(--mute)}
-/* process */
 .steps{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));counter-reset:s}
 .step{border-top:2px solid var(--acc);padding-top:14px;counter-increment:s}
 .step::before{content:"0" counter(s);font:800 2.4rem var(--d);color:var(--acc);display:block}
 .step p{color:var(--mute);font-size:.93rem}
-/* form */
 form{display:grid;gap:14px;max-width:540px}
 label{font-size:.88rem;color:var(--mute);display:grid;gap:6px}
 input,select,textarea{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:12px;border-radius:10px;font:inherit;width:100%}
 .alt{margin-top:20px}
 footer{border-top:1px solid var(--line);padding:28px 0 90px;color:var(--mute);font-size:.88rem}
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0));z-index:30;background:#25d366;color:#06220f;font-weight:700;padding:13px 18px;border-radius:40px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.status{color:var(--mute);padding:16px;background:var(--card);border-radius:12px;overflow-wrap:anywhere}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
+
 <body>
-<nav><div class="wrap"><a class="logo" href="#top">B<i>.</i>FILMS</a>
-<div class="links"><a href="#services">Services</a><a href="#grade">Colour</a><a href="#work">Work</a><a href="#contact">Contact</a></div></div></nav>
-
-<header class="hero" id="top"><div class="wrap">
-  <div>
-    <h1>Edits that <em>stop</em> the scroll.</h1>
-    <p>Instagram reels, car delivery videos and cinematic colour grading. Fast turnaround, clean cuts, and a look that makes your footage feel expensive.</p>
-    <a class="btn fill" href="#contact">Get your edit</a> <a class="btn ghost" href="#work">See samples</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">B<i>.</i>FILMS</a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#grade">Colour</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
-  <div class="phones" aria-hidden="true"><div class="ph"><span>REELS</span></div><div class="ph"><span>CAR DELIVERY</span></div><div class="ph"><span>COLOUR</span></div></div>
-</div></header>
+</nav>
 
-<section id="services" style="padding-top:30px"><div class="wrap">
-  <h2>What I edit</h2>
-  <p class="lead">Three things, done really well.</p>
-  <div class="cards" id="cards"></div>
-</div></section>
-
-<section id="grade" style="background:var(--card)"><div class="wrap">
-  <h2>See the difference</h2>
-  <p class="lead">Drag the line to compare flat raw footage with a graded look.</p>
-  <div class="ba" id="ba">
-    <div class="scene raw"><svg viewBox="0 0 300 100"><path d="M10 80h280v-14l-30-6-40-26H90L60 58l-50 8z" fill="#07050a"/><circle cx="85" cy="82" r="16" fill="#07050a" stroke="#333" stroke-width="3"/><circle cx="220" cy="82" r="16" fill="#07050a" stroke="#333" stroke-width="3"/></svg></div>
-    <div class="scene graded"><svg viewBox="0 0 300 100"><path d="M10 80h280v-14l-30-6-40-26H90L60 58l-50 8z" fill="#07050a"/><circle cx="85" cy="82" r="16" fill="#07050a" stroke="#ff5a1f" stroke-width="3"/><circle cx="220" cy="82" r="16" fill="#07050a" stroke="#ff5a1f" stroke-width="3"/></svg></div>
-    <span class="lbl" style="left:12px">RAW</span><span class="lbl" style="right:12px">GRADED</span>
-    <div class="knob"></div>
-    <input type="range" min="0" max="100" value="50" id="rng" aria-label="Before and after slider">
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Edits that <em>stop</em> the scroll.</h1>
+      <p>Instagram reels, car delivery videos and cinematic colour grading. Fast turnaround, clean cuts, and a look that makes your footage feel expensive.</p>
+      <a class="btn fill" href="#contact">Get your edit</a>
+      <a class="btn ghost" href="#work">See samples</a>
+    </div>
+    <div class="phones" aria-hidden="true">
+      <div class="ph"><span>REELS</span></div>
+      <div class="ph"><span>CAR DELIVERY</span></div>
+      <div class="ph"><span>COLOUR</span></div>
+    </div>
   </div>
-</div></section>
+</header>
 
-<section id="work"><div class="wrap">
-  <h2>Selected work</h2>
-  <p class="lead">A few edits from the timeline.</p>
-  <div class="sub">Latest uploads</div>
-<div class="grid" id="gUploads">
-  <p style="color:#9c9ca8">Loading photos and videos...</p>
-</div>
-  <div class="sub">Instagram reels</div><div class="grid" id="gReels"></div>
-  <div class="sub">Car deliveries</div><div class="grid" id="gCars"></div>
-  <div class="sub">Colour grading</div><div class="grid" id="gGrade"></div>
-</div></section>
-
-<section id="process" style="background:var(--card)"><div class="wrap">
-  <h2>How it works</h2>
-  <p class="lead">Simple, clear and on time.</p>
-  <div class="steps">
-    <div class="step"><h3>Message</h3><p>Tell me what you need and when.</p></div>
-    <div class="step"><h3>Send clips</h3><p>Share raw footage by Google Drive link.</p></div>
-    <div class="step"><h3>First cut</h3><p>Review the draft and share feedback.</p></div>
-    <div class="step"><h3>Final edit</h3><p>Revisions done, delivered in full quality.</p></div>
+<section id="services" style="padding-top:30px">
+  <div class="wrap">
+    <h2>What I edit</h2>
+    <p class="lead">Three things, done really well.</p>
+    <div class="cards" id="cards"></div>
   </div>
-</div></section>
+</section>
 
-<section id="contact"><div class="wrap">
-  <h2>Let's make yours</h2>
-  <p class="lead">Fill this in and WhatsApp opens with your message ready. Just press send.</p>
-  <form id="enq">
-    <label>Your name<input name="name" required autocomplete="name"></label>
-    <label>What do you need?<select name="svc" id="svc"></select></label>
-    <label>Deadline<input type="date" name="date"></label>
-    <label>Details<textarea name="msg" rows="3" placeholder="Video length, style you like, reference reel link..."></textarea></label>
-    <button class="btn fill" type="submit">Send on WhatsApp</button>
-  </form>
-  <div class="alt"><a class="btn ghost" id="ig" target="_blank" rel="noopener">Message on Instagram</a></div>
-</div></section>
+<section id="grade" style="background:var(--card)">
+  <div class="wrap">
+    <h2>See the difference</h2>
+    <p class="lead">Drag the line to compare flat raw footage with a graded look.</p>
+    <div class="ba" id="ba">
+      <div class="scene raw">
+        <svg viewBox="0 0 300 100" aria-hidden="true">
+          <path d="M10 80h280v-14l-30-6-40-26H90L60 58l-50 8z" fill="#07050a"/>
+          <circle cx="85" cy="82" r="16" fill="#07050a" stroke="#333" stroke-width="3"/>
+          <circle cx="220" cy="82" r="16" fill="#07050a" stroke="#333" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="scene graded">
+        <svg viewBox="0 0 300 100" aria-hidden="true">
+          <path d="M10 80h280v-14l-30-6-40-26H90L60 58l-50 8z" fill="#07050a"/>
+          <circle cx="85" cy="82" r="16" fill="#07050a" stroke="#ff5a1f" stroke-width="3"/>
+          <circle cx="220" cy="82" r="16" fill="#07050a" stroke="#ff5a1f" stroke-width="3"/>
+        </svg>
+      </div>
+      <span class="lbl" style="left:12px">RAW</span>
+      <span class="lbl" style="right:12px">GRADED</span>
+      <div class="knob"></div>
+      <input type="range" min="0" max="100" value="50" id="rng" aria-label="Before and after slider">
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="lead">A few edits from the timeline.</p>
+    <div class="sub">Latest uploads</div>
+    <div class="grid" id="gUploads">
+      <p class="status">Loading photos and videos...</p>
+    </div>
+    <div class="sub">Instagram reels</div>
+    <div class="grid" id="gReels"></div>
+    <div class="sub">Car deliveries</div>
+    <div class="grid" id="gCars"></div>
+    <div class="sub">Colour grading</div>
+    <div class="grid" id="gGrade"></div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--card)">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lead">Simple, clear and on time.</p>
+    <div class="steps">
+      <div class="step"><h3>Message</h3><p>Tell me what you need and when.</p></div>
+      <div class="step"><h3>Send clips</h3><p>Share raw footage by Google Drive link.</p></div>
+      <div class="step"><h3>First cut</h3><p>Review the draft and share feedback.</p></div>
+      <div class="step"><h3>Final edit</h3><p>Revisions done, delivered in full quality.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Let's make yours</h2>
+    <p class="lead">Fill this in and WhatsApp opens with your message ready. Just press send.</p>
+    <form id="enq">
+      <label>Your name<input name="name" required autocomplete="name"></label>
+      <label>What do you need?<select name="svc" id="svc"></select></label>
+      <label>Deadline<input type="date" name="date"></label>
+      <label>Details<textarea name="msg" rows="3" placeholder="Video length, style you like, reference reel link..."></textarea></label>
+      <button class="btn fill" type="submit">Send on WhatsApp</button>
+    </form>
+    <div class="alt">
+      <a class="btn ghost" id="ig" target="_blank" rel="noopener">Message on Instagram</a>
+    </div>
+  </div>
+</section>
 
 <footer><div class="wrap">© 2026 B Films. All rights reserved.</div></footer>
 <a class="fab" id="fab" target="_blank" rel="noopener">WhatsApp</a>
 
+<!-- IMPORTANT: Supabase library must load BEFORE the main script -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-/* ============ EDIT ONLY THIS BLOCK ============ */
-const SITE={
-  wa:"916370223886",                       // WhatsApp number with country code, no + or spaces
-  ig:"https://www.instagram.com/1x_______b/"
+const SITE = {
+  wa: "916370223886",
+  ig: "https://www.instagram.com/1x_______b/"
 };
-const SERVICES=[
+
+const SERVICES = [
   {ico:"📱",name:"Instagram Reels",price:"Message for price",items:["Beat-synced cuts and transitions","Captions, sound design and music","Vertical 9:16, ready to post"]},
   {ico:"🚗",name:"Car Delivery Edits",price:"Message for price",items:["Cinematic delivery story","Slow motion, engine sound and music","Reel and full-length versions"]},
   {ico:"🎨",name:"Colour Grading",price:"Message for price",items:["Cinematic, moody or clean looks","Skin tones and exposure fixed","Matched across all your clips"]}
 ];
-/* Work: file = "reels/one.mp4" (vertical video) or "images/one.jpg";  yt = YouTube ID for horizontal films */
-const WORK={
+
+const WORK = {
   reels:[{file:"",title:"Reel 01"},{file:"",title:"Reel 02"},{file:"",title:"Reel 03"},{file:"",title:"Reel 04"}],
   cars:[{file:"",title:"Delivery 01"},{file:"",title:"Delivery 02"},{file:"",title:"Delivery 03"},{file:"",title:"Delivery 04"}],
   grade:[{yt:"",title:"Grade 01"},{yt:"",title:"Grade 02"}]
 };
-/* ================================================ */
 
-const $=id=>document.getElementById(id);
-const wa=t=>`https://wa.me/${SITE.wa}?text=${encodeURIComponent(t)}`;
-const COL=["#ff5a1f","#3b6cff","#c9a35a","#b4306b"];
-$("fab").href=wa("Hi! I'd like to get a video edited.");
-$("ig").href=SITE.ig;
+const $ = id => document.getElementById(id);
+const wa = t => `https://wa.me/${SITE.wa}?text=${encodeURIComponent(t)}`;
+const COL = ["#ff5a1f","#3b6cff","#c9a35a","#b4306b"];
 
-$("cards").innerHTML=SERVICES.map(s=>`<div class="card"><div class="ico">${s.ico}</div><h3>${s.name}</h3><ul>${s.items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="price">${s.price}</div><a class="btn ghost" href="#contact" data-svc="${s.name}">Book this</a></div>`).join("");
-$("svc").innerHTML=SERVICES.map(s=>`<option>${s.name}</option>`).join("")+"<option>Something else</option>";
-document.querySelectorAll("[data-svc]").forEach(a=>a.addEventListener("click",()=>{$("svc").value=a.dataset.svc}));
+$("fab").href = wa("Hi! I'd like to get a video edited.");
+$("ig").href = SITE.ig;
+
+$("cards").innerHTML = SERVICES.map(s =>
+  `<div class="card">
+    <div class="ico">${s.ico}</div>
+    <h3>${s.name}</h3>
+    <ul>${s.items.map(i=>`<li>${i}</li>`).join("")}</ul>
+    <div class="price">${s.price}</div>
+    <a class="btn ghost" href="#contact" data-svc="${s.name}">Book this</a>
+  </div>`
+).join("");
+
+$("svc").innerHTML = SERVICES.map(s=>`<option>${s.name}</option>`).join("") + "<option>Something else</option>";
+
+document.querySelectorAll("[data-svc]").forEach(a => {
+  a.addEventListener("click", () => {$("svc").value = a.dataset.svc;});
+});
 
 function tile(w,i,wide){
-  let m="";
-  if(w.yt)m=`<iframe src="https://www.youtube-nocookie.com/embed/${w.yt}" title="${w.title}" loading="lazy" allowfullscreen></iframe>`;
-  else if(/\.(mp4|webm|mov)$/i.test(w.file||""))m=`<video src="${w.file}" controls muted playsinline preload="metadata"></video>`;
-  else if(w.file)m=`<img src="${w.file}" alt="${w.title}" loading="lazy">`;
-  else m=`<div class="play">▶</div>`;
+  let m = "";
+  if(w.yt) {
+    m = `<iframe src="https://www.youtube-nocookie.com/embed/${w.yt}" title="${w.title}" loading="lazy" allowfullscreen></iframe>`;
+  } else if(/\.(mp4|webm|mov)$/i.test(w.file||"")) {
+    m = `<video src="${w.file}" controls muted playsinline preload="metadata"></video>`;
+  } else if(w.file) {
+    m = `<img src="${w.file}" alt="${w.title}" loading="lazy">`;
+  } else {
+    m = `<div class="play">▶</div>`;
+  }
   return `<div class="tile${wide?" w":""}" style="--g1:${COL[i%4]}">${m}${w.file||w.yt?"":`<span>${w.title}</span>`}</div>`;
 }
-$("gReels").innerHTML=WORK.reels.map((w,i)=>tile(w,i)).join("");
-$("gCars").innerHTML=WORK.cars.map((w,i)=>tile(w,i+1)).join("");
-$("gGrade").innerHTML=WORK.grade.map((w,i)=>tile(w,i+2,true)).join("");
+
+$("gReels").innerHTML = WORK.reels.map((w,i)=>tile(w,i,false)).join("");
+$("gCars").innerHTML = WORK.cars.map((w,i)=>tile(w,i+1,false)).join("");
+$("gGrade").innerHTML = WORK.grade.map((w,i)=>tile(w,i+2,true)).join("");
 
 async function loadUploads(){
-  const box = document.getElementById("gUploads");
+  const box = $("gUploads");
   const SUPABASE_URL = "https://xqbkfolbkdaxaduerocq.supabase.co";
   const SUPABASE_KEY = "sb_publishable_1iSQqaHnz1qf3hZuK0E9HA_vCcSI-kd";
 
   try {
+    if (!window.supabase) {
+      throw new Error("Supabase library did not load. Check your internet connection and refresh.");
+    }
+
     const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    const { data, error } = await client.storage
+    const {data, error} = await client.storage
       .from("b-films-media")
       .list("uploads", {
         limit: 100,
-        sortBy: { column: "created_at", order: "desc" }
+        sortBy: {column:"created_at", order:"desc"}
       });
 
-    if (error) throw error;
+    if(error) throw error;
 
     const files = (data || []).filter(f =>
-      /\.(mp4|webm|mov|jpg|jpeg|png|webp)$/i.test(f.name)
+      f.name && /\.(mp4|webm|mov|jpg|jpeg|png|webp)$/i.test(f.name)
     );
 
-    if (!files.length) {
-      box.textContent = "No uploads yet. Upload photos or videos from Admin Panel.";
+    if(!files.length){
+      box.innerHTML = "";
+      const msg = document.createElement("p");
+      msg.className = "status";
+      msg.textContent = "No uploads found. Upload a photo or video from the Admin Panel.";
+      box.appendChild(msg);
       return;
     }
 
     box.replaceChildren();
 
-    files.forEach((file, i) => {
-      const url = client.storage.from("b-films-media")
-        .getPublicUrl("uploads/" + file.name).data.publicUrl;
-      const tile = document.createElement("div");
-      tile.className = "tile";
-      tile.style.setProperty("--g1", ["#ff5a1f","#3b6cff","#c9a35a","#b4306b"][i % 4]);
+    files.forEach((file,i) => {
+      const result = client.storage.from("b-films-media").getPublicUrl("uploads/" + file.name);
+      const url = result.data.publicUrl;
+      const card = document.createElement("div");
+      card.className = "tile";
+      card.style.setProperty("--g1", COL[i % COL.length]);
 
-      if (/\.(mp4|webm|mov)$/i.test(file.name)) {
+      if(/\.(mp4|webm|mov)$/i.test(file.name)){
         const video = document.createElement("video");
         video.src = url;
         video.controls = true;
         video.muted = true;
         video.playsInline = true;
         video.preload = "metadata";
-        tile.appendChild(video);
+        card.appendChild(video);
       } else {
         const img = document.createElement("img");
         img.src = url;
         img.alt = file.name;
         img.loading = "lazy";
-        tile.appendChild(img);
+        img.onerror = () => {
+          img.alt = "Image could not be displayed: " + file.name;
+        };
+        card.appendChild(img);
       }
 
       const caption = document.createElement("span");
       caption.textContent = file.name.replace(/^\d+_/, "");
-      tile.appendChild(caption);
-      box.appendChild(tile);
+      card.appendChild(caption);
+      box.appendChild(card);
     });
-  } catch (err) {
-    box.textContent = "Uploads could not be loaded. Check the Supabase bucket settings.";
-    console.error(err);
+  } catch(err) {
+    console.error("B Films upload loading error:", err);
+    box.replaceChildren();
+    const msg = document.createElement("p");
+    msg.className = "status";
+    msg.textContent = "Upload loading error: " + (err.message || String(err));
+    box.appendChild(msg);
   }
 }
 
-loadUploads();
-                  
-const ba=$("ba"),rng=$("rng");
-rng.addEventListener("input",()=>ba.style.setProperty("--p",rng.value+"%"));
+const ba = $("ba");
+const rng = $("rng");
+rng.addEventListener("input", () => ba.style.setProperty("--p",rng.value+"%"));
+ba.style.setProperty("--p",rng.value+"%");
 
-$("enq").addEventListener("submit",e=>{
-  e.preventDefault();const f=new FormData(e.target);
-  const t=`Hi!\nName: ${f.get("name")}\nNeed: ${f.get("svc")}\nDeadline: ${f.get("date")||"flexible"}\nDetails: ${f.get("msg")||"-"}`;
+$("enq").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const t = `Hi!\nName: ${f.get("name")}\nNeed: ${f.get("svc")}\nDeadline: ${f.get("date")||"flexible"}\nDetails: ${f.get("msg")||"-"}`;
   window.open(wa(t),"_blank","noopener");
 });
+
+loadUploads();
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
-</html>
+  </html>
+                          
