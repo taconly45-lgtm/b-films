@@ -458,7 +458,7 @@ document.getElementById("reviewForm").addEventListener("submit", async event => 
     name: String(values.get("name")).trim(),
     rating: Number(values.get("rating")),
     review: String(values.get("review")).trim(),
-    is_approved: false
+    is_approved: true
   });
 
   if (error) {
