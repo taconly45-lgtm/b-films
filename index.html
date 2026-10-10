@@ -463,12 +463,12 @@ document.getElementById("reviewForm").addEventListener("submit", async event => 
 
   if (error) {
     console.error(error);
-    status.textContent = "Could not submit. Please try again later.";
+    status.textContent = "Error: " + error.message;
     return;
   }
 
   form.reset();
-  status.textContent = "Error: " + error.message;
+  status.textContent = "Thank you! Your review is submitted for approval.";
 });
 
 showReviews();
